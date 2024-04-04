@@ -14,7 +14,9 @@ function App() {
           <button> save revision </button>
         </div>
       </div>
-      <div className="chords"> Chordsa </div>
+      <div className="chords">
+         <h2>C Dm F G</h2>
+      </div>
       <div className="files"> Files </div>
       <div className="comments"> Comments (big) </div>
       <div className="submit"> Yah submit </div>
