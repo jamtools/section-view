@@ -15,7 +15,12 @@ function App() {
         </div>
       </div>
       <div className="chords">
-         <h2>C Dm F G</h2>
+        <ol>
+          <li>C</li>
+          <li>Dm</li>
+          <li>F</li>
+          <li>G</li>
+        </ol>
       </div>
       <div className="files"> Files </div>
       <div className="comments"> Comments (big) </div>

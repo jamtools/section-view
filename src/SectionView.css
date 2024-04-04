@@ -115,7 +115,30 @@ display: flex;
 
 .chords {
   flex-grow: 2;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
 }
+
+.chords ol li{
+  font-size: 7rem;
+  display: inline;
+  margin: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .files {
   flex-grow: 3;
