@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import './SectionView.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="parent">
+      <div className="section-title">
+        <h1> Intro </h1>
+        <button> 42 revisions </button>
+        <button> save revision </button>
+      </div>
+      <div className="chords"> Chordsa </div>
+      <div className="files"> Files </div>
+      <div className="comments"> Comments (big) </div>
+      <div className="submit"> Yah submit </div>
     </div>
   );
 }
