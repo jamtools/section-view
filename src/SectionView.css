@@ -72,9 +72,46 @@ div {
 
 }
 
+
+
+
+
+
+
+/* SECTION TITLE STYLES */
+
+
 .section-title {
   flex-grow: 1;
+  display: flex;
 }
+
+.section-title h1 {
+  font-size: 4rem;
+}
+
+.section-title p {
+  font-size: 2rem;
+}
+
+.section-title .buttons {
+flex-grow: 1;
+display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-title .text {
+  flex-grow: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+/* CHORD PROGRESSION STYLES */
+
 
 .chords {
   flex-grow: 2;

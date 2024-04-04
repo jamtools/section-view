@@ -5,9 +5,14 @@ function App() {
   return (
     <div className="parent">
       <div className="section-title">
-        <h1> Intro </h1>
-        <button> 42 revisions </button>
-        <button> save revision </button>
+        <div className='text'>
+          <h1> Intro </h1>
+          <p>This intro section consists of a tuba quartet in the style of DJ Templeton & The Windsurfers</p>
+        </div>
+        <div className='buttons'>
+          <button> 42 revisions </button>
+          <button> save revision </button>
+        </div>
       </div>
       <div className="chords"> Chordsa </div>
       <div className="files"> Files </div>
