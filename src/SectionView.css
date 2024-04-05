@@ -160,16 +160,27 @@ display: flex;
 }
 
 
-
-
-
-
-
+/* STLYES FOR COMMENTS */
 
 
 .comments {
   flex-grow: 4;
 }
+
+
+.comments span {
+  font-size: 7rem;
+  padding: 4rem;
+}
+
+
+
+
+
+
+
+
+
 
 .submit {
   flex-grow: 2;
