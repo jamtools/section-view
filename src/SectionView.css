@@ -129,20 +129,43 @@ display: flex;
 
 
 
-
-
-
-
-
-
-
-
-
+/* FILES STYLES */
 
 
 .files {
   flex-grow: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
 }
+
+
+.files div {
+  display: inline;
+  margin: 3rem;
+  padding: 3rem;
+  border: 0.3rem solid rgb(0, 0, 0);
+  font-size: 3.5rem;
+}
+
+
+
+.files span {
+  font-size: 3rem;
+}
+
+.files span::first-letter {
+  font-size: 5rem;
+}
+
+
+
+
+
+
+
+
 
 .comments {
   flex-grow: 4;

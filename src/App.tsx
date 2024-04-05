@@ -22,8 +22,17 @@ function App() {
           <li>G</li>
         </ol>
       </div>
-      <div className="files"> Files </div>
-      <div className="comments"> Comments (big) </div>
+      <div className="files">
+        <span>+ Files</span>
+        
+          <div>Bass.mp3 <br></br> <br></br> 2 Comments</div>
+          <div>Drums.mp3 <br></br> <br></br> 2 Comments</div>
+          <div>Yodeling.mp3 <br></br> <br></br> 2 Comments  </div>
+          <div>Tuba.mp3 <br></br> <br></br> 2 Comments  </div>
+      </div>
+      <div className="comments">
+        3 Comments
+      </div>
       <div className="submit"> Yah submit </div>
     </div>
   );
