@@ -40,7 +40,8 @@ function App() {
         </div>
       </div>
       <div className="submit">
-         I'm making a comment
+      <textarea placeholder="make a comment"></textarea>
+      <button>Submit</button>
       </div>
     </div>
   );

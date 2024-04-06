@@ -75,6 +75,7 @@ html {font-size: 62.5%;}
 
 div {
   border: 1px solid black;
+  border-collapse: collapse;
 
 }
 
@@ -192,7 +193,7 @@ display: flex;
 }
 
 .display-comments {
-  background-color: rgb(103, 209, 225);
+  background-color: rgb(73, 229, 253);
   margin-left: 5rem;
 }
 
@@ -201,6 +202,23 @@ display: flex;
 
 
 
+/* STYLES FOR SUBMITTING A COMMENT */
+
+
+
 .submit {
   flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit * {
+  margin: 5rem;
+}
+
+.submit textarea {
+  width: 45%;
+  height: 80%;
+  background-color: rgb(73, 229, 253);
 }
