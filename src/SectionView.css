@@ -54,6 +54,12 @@ table {
 
 
 
+
+/* END OF CSS RESET */
+
+
+
+
 * { box-sizing: border-box;
 }
 html {font-size: 62.5%;}
@@ -68,7 +74,7 @@ html {font-size: 62.5%;}
 }
 
 div {
-  border: 2px solid black;
+  border: 1px solid black;
 
 }
 
@@ -164,18 +170,31 @@ display: flex;
 
 
 .comments {
-  flex-grow: 4;
+  flex-grow: 3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 2.5rem;
 }
 
 
 .comments span {
   font-size: 7rem;
   padding: 4rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.comments p {
+  padding: 3rem 0;
+  padding-left: 3rem;
+}
 
-
-
+.display-comments {
+  background-color: rgb(103, 209, 225);
+  margin-left: 5rem;
+}
 
 
 

@@ -1,5 +1,7 @@
 import './App.css';
 import './SectionView.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   return (
@@ -31,8 +33,15 @@ function App() {
       </div>
       <div className="comments">
         <span>3 Comments</span>
+        <div className="display-comments">
+        <p><FontAwesomeIcon icon={faFaceSmile} /> Jerry: My name is Schmoopie and I love this song. It reminds me of my grandpa</p>
+        <p><FontAwesomeIcon icon={faFaceSmile} /> Larry: jokes on you! Im deaf.</p>
+        <p><FontAwesomeIcon icon={faFaceSmile} /> Terry: Notice the tinnitus ringing in your ears, let the hiss from your damaged hearing remind you of peaceful ocean waves...</p>
+        </div>
       </div>
-      <div className="submit"> Yah submit </div>
+      <div className="submit">
+         I'm making a comment
+      </div>
     </div>
   );
 }
