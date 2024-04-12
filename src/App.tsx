@@ -6,7 +6,7 @@ import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   return (
-    <div className="parent">
+    <div className="root">
       <div className="section-title">
         <div className='text'>
           <h1> Intro </h1>

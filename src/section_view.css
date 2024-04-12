@@ -7,7 +7,7 @@
 html {font-size: 62.5%;}
 
 
-.parent {
+.root {
   display: flex;
   background-color: rgb(95, 193, 208);
   justify-content: center;
