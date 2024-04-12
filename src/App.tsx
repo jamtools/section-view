@@ -1,5 +1,6 @@
 import './App.css';
-import './SectionView.css';
+import './css_reset.css'
+import './section_view.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
