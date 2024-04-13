@@ -55,7 +55,7 @@ function App() {
   // Components
 
   function Files() {
-    return <>
+    return <div className="files">
       <span>+ Files</span>
       {files.map((file) =>
         <div>
@@ -64,7 +64,7 @@ function App() {
           {file.numComments + ' '}
           Comments
         </div>)}
-    </>
+    </div>
   }
 
 
@@ -93,9 +93,8 @@ function App() {
         </div>
       </div>
       <ChordProgression />
-      <div className="files">
-        <Files />
-      </div>
+      <Files />
+
       <div className="comments">
         <span>3 Comments</span>
         <div className="display-comments">
