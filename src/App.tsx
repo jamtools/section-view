@@ -90,6 +90,12 @@ function App() {
     </div>
   }
 
+  function Submit() {
+    return <div className="submit">
+      <textarea placeholder="make a comment"></textarea>
+      <button>Submit</button>
+    </div>
+  }
 
 
   return (
@@ -107,10 +113,7 @@ function App() {
       <ChordProgression />
       <Files />
       <Comments />
-      <div className="submit">
-        <textarea placeholder="make a comment"></textarea>
-        <button>Submit</button>
-      </div>
+      <Submit />
     </div>
   );
 }
