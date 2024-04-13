@@ -45,6 +45,24 @@ function App() {
   ]
 
 
+  // Components
+
+  function Files() {
+    return <>
+      <span>+ Files</span>
+      {files.map((file) =>
+        <div>
+        {file.title}
+        <br></br> <br></br>
+        {file.numComments + ' '} 
+         Comments
+        </div>)}
+      </>
+  }
+
+
+
+
 
 
   return (
@@ -68,11 +86,7 @@ function App() {
         </ol>
       </div>
       <div className="files">
-        <span>+ Files</span>
-          <div>{files[0].title} <br></br> <br></br> {files[0].numComments} Comments</div>
-          <div>{files[1].title} <br></br> <br></br> {files[1].numComments} Comments</div>
-          <div>{files[2].title} <br></br> <br></br> {files[2].numComments} Comments  </div>
-          <div>{files[3].title} <br></br> <br></br> {files[3].numComments} Comments  </div>
+        <Files/>
       </div>
       <div className="comments">
         <span>3 Comments</span>
