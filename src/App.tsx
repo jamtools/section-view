@@ -61,6 +61,12 @@ function App() {
   }
 
 
+  function ChordProgression() {
+    return <ol>
+      {currentChordProgression.map((chord,index) => <li>{chord}</li> )}
+    </ol>
+  }
+
 
 
 
@@ -78,12 +84,7 @@ function App() {
         </div>
       </div>
       <div className="chords">
-        <ol>
-          <li>{currentChordProgression[0]}</li>
-          <li>{currentChordProgression[1]}</li>
-          <li>{currentChordProgression[2]}</li>
-          <li>{currentChordProgression[3]}</li>
-        </ol>
+        <ChordProgression/>
       </div>
       <div className="files">
         <Files/>
