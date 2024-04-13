@@ -48,7 +48,7 @@ function App() {
     {
       name: 'Jerry',
       commentText: 'Notice the tinnitus ringing in your ears, let the hiss from your damaged hearing remind you of peaceful ocean waves...'
-    }
+    },
   ]
 
 
@@ -77,6 +77,18 @@ function App() {
   }
 
 
+  function Comments() {
+    return <div className="comments">
+      <span>3 Comments</span>
+      <div className="display-comments">
+        {comments.map((comment, index) => {
+          return <>
+            <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[index].name}: {comments[index].commentText}</p>
+          </>
+        })}
+      </div>
+    </div>
+  }
 
 
 
@@ -94,15 +106,7 @@ function App() {
       </div>
       <ChordProgression />
       <Files />
-
-      <div className="comments">
-        <span>3 Comments</span>
-        <div className="display-comments">
-          <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[0].name}: {comments[0].commentText} </p>
-          <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[1].name}: {comments[1].commentText} </p>
-          <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[2].name}: {comments[2].commentText} </p>
-        </div>
-      </div>
+      <Comments />
       <div className="submit">
         <textarea placeholder="make a comment"></textarea>
         <button>Submit</button>
