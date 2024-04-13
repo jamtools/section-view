@@ -12,34 +12,41 @@ function App() {
     name: 'Intro',
     description: 'This intro section consists of a tuba quartet in the style of DJ Templeton & The Windsurfers',
     numRevisions: 42,
-};
+  };
 
   const currentChordProgression = ['C', 'Dm', 'F', 'G']
 
   const files = [
-    {title: 'Bass.mp3',
+    {
+      title: 'Bass.mp3',
       numComments: 2,
     },
-    {title: 'Drums.mp3',
+    {
+      title: 'Drums.mp3',
       numComments: 2,
     },
-    {title: 'Yodeling.mp3',
+    {
+      title: 'Yodeling.mp3',
       numComments: 2,
     },
-    {title: 'Tuba.mp3',
+    {
+      title: 'Tuba.mp3',
       numComments: 2,
     },
   ]
 
 
   const comments = [
-    {name: 'Jerry', 
+    {
+      name: 'Jerry',
       commentText: 'My name is Schmoopie and I love this song. It reminds me of my grandpa'
     },
-    {name: 'Lerry', 
+    {
+      name: 'Lerry',
       commentText: 'jokes on you! Im deaf.'
     },
-    {name: 'Jerry', 
+    {
+      name: 'Jerry',
       commentText: 'Notice the tinnitus ringing in your ears, let the hiss from your damaged hearing remind you of peaceful ocean waves...'
     }
   ]
@@ -52,19 +59,21 @@ function App() {
       <span>+ Files</span>
       {files.map((file) =>
         <div>
-        {file.title}
-        <br></br> <br></br>
-        {file.numComments + ' '} 
-         Comments
+          {file.title}
+          <br></br> <br></br>
+          {file.numComments + ' '}
+          Comments
         </div>)}
-      </>
+    </>
   }
 
 
   function ChordProgression() {
-    return <ol>
-      {currentChordProgression.map((chord,index) => <li>{chord}</li> )}
-    </ol>
+    return <div className="chords">
+      <ol>
+        {currentChordProgression.map((chord, index) => <li>{chord}</li>)}
+      </ol>
+    </div>
   }
 
 
@@ -83,23 +92,21 @@ function App() {
           <button> Save revision </button>
         </div>
       </div>
-      <div className="chords">
-        <ChordProgression/>
-      </div>
+      <ChordProgression />
       <div className="files">
-        <Files/>
+        <Files />
       </div>
       <div className="comments">
         <span>3 Comments</span>
         <div className="display-comments">
-        <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[0].name}: {comments[0].commentText} </p>
-        <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[1].name}: {comments[1].commentText} </p>
-        <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[2].name}: {comments[2].commentText} </p>
+          <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[0].name}: {comments[0].commentText} </p>
+          <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[1].name}: {comments[1].commentText} </p>
+          <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[2].name}: {comments[2].commentText} </p>
         </div>
       </div>
       <div className="submit">
-      <textarea placeholder="make a comment"></textarea>
-      <button>Submit</button>
+        <textarea placeholder="make a comment"></textarea>
+        <button>Submit</button>
       </div>
     </div>
   );
