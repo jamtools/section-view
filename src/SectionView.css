@@ -1,0 +1,226 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+
+
+
+/* END OF CSS RESET */
+
+
+
+
+* { 
+  box-sizing: border-box;
+}
+
+html {font-size: 62.5%;}
+
+
+.parent {
+  display: flex;
+  background-color: rgb(95, 193, 208);
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+div {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
+
+
+
+
+
+
+
+/* SECTION TITLE STYLES */
+
+
+.section-title {
+  flex-grow: 1;
+  display: flex;
+}
+
+.section-title h1 {
+  font-size: 4rem;
+}
+
+.section-title p {
+  font-size: 2rem;
+}
+
+.section-title .buttons {
+flex-grow: 1;
+display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-title .text {
+  flex-grow: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+/* CHORD PROGRESSION STYLES */
+
+
+.chords {
+  flex-grow: 2;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+
+.chords ol li{
+  font-size: 7rem;
+  display: inline;
+  margin: 3rem;
+}
+
+
+
+/* FILES STYLES */
+
+
+.files {
+  flex-grow: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+
+.files div {
+  display: inline;
+  margin: 3rem;
+  padding: 3rem;
+  border: 0.3rem solid rgb(0, 0, 0);
+  font-size: 3.5rem;
+}
+
+
+
+.files span {
+  font-size: 3rem;
+}
+
+.files span::first-letter {
+  font-size: 5rem;
+}
+
+
+/* STLYES FOR COMMENTS */
+
+
+.comments {
+  flex-grow: 3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 2.5rem;
+}
+
+
+.comments span {
+  font-size: 7rem;
+  padding: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comments p {
+  padding: 3rem 0;
+  padding-left: 3rem;
+}
+
+.display-comments {
+  background-color: rgb(73, 229, 253);
+  margin-left: 5rem;
+}
+
+
+
+
+
+
+/* STYLES FOR SUBMITTING A COMMENT */
+
+
+
+.submit {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit * {
+  margin: 5rem;
+}
+
+.submit textarea {
+  width: 45%;
+  height: 80%;
+  background-color: rgb(73, 229, 253);
+}
