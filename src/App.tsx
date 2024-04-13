@@ -97,19 +97,22 @@ function App() {
     </div>
   }
 
+  function SectionTitle() {
+    return <div className="section-title">
+      <div className='text'>
+        <h1> {sectionData.name} </h1>
+        <p>{sectionData.description}</p>
+      </div>
+      <div className='buttons'>
+        <button> {sectionData.numRevisions} revisions </button>
+        <button> Save revision </button>
+      </div>
+    </div>
+  }
 
   return (
     <div className="root">
-      <div className="section-title">
-        <div className='text'>
-          <h1> {sectionData.name} </h1>
-          <p>{sectionData.description}</p>
-        </div>
-        <div className='buttons'>
-          <button> {sectionData.numRevisions} revisions </button>
-          <button> Save revision </button>
-        </div>
-      </div>
+      <SectionTitle />
       <ChordProgression />
       <Files />
       <Comments />
