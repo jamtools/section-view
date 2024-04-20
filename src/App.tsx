@@ -55,59 +55,69 @@ function App() {
   // Components
 
   function Files() {
-    return <div className="files">
-      <span>+ Files</span>
-      {files.map((file) =>
-        <div>
-          {file.title}
-          <br></br> <br></br>
-          {file.numComments + ' '}
-          Comments
-        </div>)}
-    </div>
+    return (
+      <div className="files">
+        <span>+ Files</span>
+        {files.map((file) =>
+          <div>
+            {file.title}
+            <br></br> <br></br>
+            {file.numComments + ' '}
+            Comments
+          </div>)}
+      </div>
+    )
   }
 
 
   function ChordProgression() {
-    return <div className="chords">
-      <ol>
-        {currentChordProgression.map((chord, index) => <li>{chord}</li>)}
-      </ol>
-    </div>
+    return (
+      <div className="chords">
+        <ol>
+          {currentChordProgression.map((chord, index) => <li>{chord}</li>)}
+        </ol>
+      </div>
+    )
   }
 
 
   function Comments() {
-    return <div className="comments">
-      <span>3 Comments</span>
-      <div className="display-comments">
-        {comments.map((comment, index) => {
-          return <>
-            <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[index].name}: {comments[index].commentText}</p>
-          </>
-        })}
+    return (
+      <div className="comments">
+        <span>3 Comments</span>
+        <div className="display-comments">
+          {comments.map((comment, index) => {
+            return <>
+              <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[index].name}: {comments[index].commentText}</p>
+            </>
+          })}
+        </div>
       </div>
-    </div>
+    )
   }
 
   function Submit() {
-    return <div className="submit">
-      <textarea placeholder="make a comment"></textarea>
-      <button>Submit</button>
-    </div>
+    return (
+      <div className="submit">
+        <textarea placeholder="make a comment"></textarea>
+        <button>Submit</button>
+      </div>
+    )
   }
 
   function SectionTitle() {
-    return <div className="section-title">
-      <div className='text'>
-        <h1> {sectionData.name} </h1>
-        <p>{sectionData.description}</p>
+    return (
+      <div className="section-title">
+        <div className='text'>
+          <h1> {sectionData.name} </h1>
+          <p>{sectionData.description}</p>
+        </div>
+        <div className='buttons'>
+          <button> {sectionData.numRevisions} revisions </button>
+          <button> Save revision </button>
+        </div>
       </div>
-      <div className='buttons'>
-        <button> {sectionData.numRevisions} revisions </button>
-        <button> Save revision </button>
-      </div>
-    </div>
+    )
   }
 
   return (
