@@ -6,7 +6,14 @@ import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 
+  type sectionDataProps = {
+    sectionData: {
+      name: string,
+      description: string,
+      numRevisions: number
+    }
 
+  }
 
   const sectionData = {
     name: 'Intro',
@@ -105,7 +112,9 @@ function App() {
     )
   }
 
-  function SectionTitle() {
+
+
+  const SectionTitle: React.FC<sectionDataProps> = ({ sectionData }) => {
     return (
       <div className="section-title">
         <div className='text'>
@@ -122,7 +131,7 @@ function App() {
 
   return (
     <div className="root">
-      <SectionTitle />
+      <SectionTitle sectionData={sectionData} />
       <ChordProgression />
       <Files />
       <Comments />
