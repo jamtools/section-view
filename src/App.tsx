@@ -20,6 +20,17 @@ function App() {
   }
 
 
+  type file = {
+    title: string,
+    numComments: number
+  }
+  
+
+  type filesProps = {
+    files: file[]
+  }
+
+
   const sectionData = {
     name: 'Intro',
     description: 'This intro section consists of a tuba quartet in the style of DJ Templeton & The Windsurfers',
@@ -66,7 +77,7 @@ function App() {
 
   // Components
 
-  function Files() {
+  const Files:React.FC<filesProps> = ({files}) => {
     return (
       <div className="files">
         <span>+ Files</span>
@@ -138,7 +149,7 @@ function App() {
     <div className="root">
       <SectionTitle sectionData={sectionData} />
       <ChordProgression chordProgression={currentChordProgression}  />
-      <Files />
+      <Files files={files}/>
       <Comments />
       <Submit />
     </div>
