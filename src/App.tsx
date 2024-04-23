@@ -31,6 +31,23 @@ function App() {
   }
 
 
+  type comment = {
+    name: string,
+    commentText: string
+  }
+
+  type commentsProps = {
+    comments: comment[]
+  }
+
+
+
+
+
+
+  //Data 
+
+
   const sectionData = {
     name: 'Intro',
     description: 'This intro section consists of a tuba quartet in the style of DJ Templeton & The Windsurfers',
@@ -104,7 +121,7 @@ function App() {
   }
 
 
-  function Comments() {
+  const Comments:React.FC<commentsProps> = ({comments}) => {
     return (
       <div className="comments">
         <span>3 Comments</span>
@@ -150,7 +167,7 @@ function App() {
       <SectionTitle sectionData={sectionData} />
       <ChordProgression chordProgression={currentChordProgression}  />
       <Files files={files}/>
-      <Comments />
+      <Comments comments={comments}/>
       <Submit />
     </div>
   );
