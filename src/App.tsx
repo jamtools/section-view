@@ -15,6 +15,11 @@ function App() {
 
   }
 
+  type chordProgressionProps = {
+    chordProgression: string[]
+  }
+
+
   const sectionData = {
     name: 'Intro',
     description: 'This intro section consists of a tuba quartet in the style of DJ Templeton & The Windsurfers',
@@ -77,11 +82,11 @@ function App() {
   }
 
 
-  function ChordProgression() {
+  const ChordProgression:React.FC<chordProgressionProps> = ({chordProgression}) => {
     return (
       <div className="chords">
         <ol>
-          {currentChordProgression.map((chord, index) => <li>{chord}</li>)}
+          {chordProgression.map((chord, index) => <li>{chord}</li>)}
         </ol>
       </div>
     )
@@ -132,7 +137,7 @@ function App() {
   return (
     <div className="root">
       <SectionTitle sectionData={sectionData} />
-      <ChordProgression />
+      <ChordProgression chordProgression={currentChordProgression}  />
       <Files />
       <Comments />
       <Submit />
