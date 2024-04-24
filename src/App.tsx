@@ -1,46 +1,11 @@
 import './App.css';
 import './css_reset.css'
 import './section_view.css';
+import * as Types from './types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
-
-  type sectionDataProps = {
-    sectionData: {
-      name: string,
-      description: string,
-      numRevisions: number
-    }
-
-  }
-
-  type chordProgressionProps = {
-    chordProgression: string[]
-  }
-
-
-  type file = {
-    title: string,
-    numComments: number,
-    id: string,
-  }
-  
-
-  type filesProps = {
-    files: file[]
-  }
-
-
-  type comment = {
-    name: string,
-    commentText: string
-  }
-
-  type commentsProps = {
-    comments: comment[]
-  }
-
 
 
   //Data 
@@ -96,7 +61,7 @@ function App() {
 
   // Components
 
-  const Files:React.FC<filesProps> = ({files}) => {
+  const Files:React.FC<Types.filesProps> = ({files}) => {
     return (
       <div className="files">
         <span>+ Files</span>
@@ -112,7 +77,7 @@ function App() {
   }
 
 
-  const ChordProgression:React.FC<chordProgressionProps> = ({chordProgression}) => {
+  const ChordProgression:React.FC<Types.chordProgressionProps> = ({chordProgression}) => {
     return (
       <div className="chords">
         <ol>
@@ -123,7 +88,7 @@ function App() {
   }
 
 
-  const Comments:React.FC<commentsProps> = ({comments}) => {
+  const Comments:React.FC<Types.commentsProps> = ({comments}) => {
     return (
       <div className="comments">
         <span>3 Comments</span>
@@ -149,7 +114,7 @@ function App() {
 
 
 
-  const SectionTitle: React.FC<sectionDataProps> = ({ sectionData }) => {
+  const SectionTitle: React.FC<Types.sectionDataProps> = ({ sectionData }) => {
     return (
       <div className="section-title">
         <div className='text'>
