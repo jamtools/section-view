@@ -22,7 +22,8 @@ function App() {
 
   type file = {
     title: string,
-    numComments: number
+    numComments: number,
+    id: string,
   }
   
 
@@ -42,9 +43,6 @@ function App() {
 
 
 
-
-
-
   //Data 
 
 
@@ -60,18 +58,22 @@ function App() {
     {
       title: 'Bass.mp3',
       numComments: 2,
+      id: 'change me to something better 0 '
     },
     {
       title: 'Drums.mp3',
       numComments: 2,
+      id: 'change me to something better 1'
     },
     {
       title: 'Yodeling.mp3',
       numComments: 2,
+      id: 'change me to something better 2'
     },
     {
       title: 'Tuba.mp3',
       numComments: 2,
+      id: 'change me to something better 3'
     },
   ]
 
@@ -99,7 +101,7 @@ function App() {
       <div className="files">
         <span>+ Files</span>
         {files.map((file) =>
-          <div>
+          <div id={file.id}>
             {file.title}
             <br></br> <br></br>
             {file.numComments + ' '}
