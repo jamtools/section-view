@@ -2,6 +2,7 @@ import './App.css';
 import './css_reset.css'
 import './section_view.css';
 import * as Types from './types';
+import * as testData from './testData'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
@@ -80,10 +81,10 @@ function App() {
 
   return (
     <div className="root">
-      <SectionTitle sectionData={sectionData} />
-      <ChordProgression chordProgression={currentChordProgression}  />
-      <Files files={files}/>
-      <Comments comments={comments}/>
+      <SectionTitle sectionData={testData.sectionData} />
+      <ChordProgression chordProgression={testData.currentChordProgression}  />
+      <Files files={testData.files}/>
+      <Comments comments={testData.comments}/>
       <Submit />
     </div>
   );
