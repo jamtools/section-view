@@ -1,4 +1,4 @@
-import { Type } from 'typescript';
+
 import * as Types from './types'
 
 const sectionData:Types.sectionData = {
