@@ -1,34 +1,41 @@
+
+export type sectionData = {
+    name: string,
+    description: string,
+    numRevisions: number
+}
+
 export type sectionDataProps = {
-    sectionData: {
-      name: string,
-      description: string,
-      numRevisions: number
-    }
-
-  }
-
-  export type chordProgressionProps = {
-    chordProgression: string[]
-  }
+    sectionData:sectionData
+}
 
 
-  export type file = {
+
+
+export type chordProgression = string[]
+
+export type chordProgressionProps = {
+    chordProgression: chordProgression
+}
+
+
+
+export type file = {
     title: string,
     numComments: number,
     id: string,
-  }
-  
+}
 
-  export type filesProps = {
+export type filesProps = {
     files: file[]
-  }
+}
 
 
-  export type comment = {
+export type comment = {
     name: string,
     commentText: string
-  }
+}
 
-  export type commentsProps = {
+export type commentsProps = {
     comments: comment[]
-  }
+}
