@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import * as testData from './testData'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -9,7 +10,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <App 
+    sectionData={testData.sectionData}
+    chordProgression={testData.currentChordProgression}
+    files={testData.files}
+    comments={testData.comments}
+    />
   </React.StrictMode>
 );
 

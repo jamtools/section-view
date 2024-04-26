@@ -6,7 +6,7 @@ export type sectionData = {
 }
 
 export type sectionDataProps = {
-    sectionData:sectionData
+    sectionData: sectionData
 }
 
 
@@ -37,5 +37,13 @@ export type comment = {
 }
 
 export type commentsProps = {
+    comments: comment[]
+}
+
+
+export type appProps = {
+    sectionData: sectionData,
+    chordProgression: chordProgression,
+    files: file[],
     comments: comment[]
 }

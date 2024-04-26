@@ -2,11 +2,10 @@ import './App.css';
 import './css_reset.css'
 import './section_view.css';
 import * as Types from './types';
-import * as testData from './testData'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
-function App() {
+const App:React.FC<Types.appProps> = ({sectionData, chordProgression, comments, files}) => {
 
 
   // Components
@@ -81,10 +80,10 @@ function App() {
 
   return (
     <div className="root">
-      <SectionTitle sectionData={testData.sectionData} />
-      <ChordProgression chordProgression={testData.currentChordProgression}  />
-      <Files files={testData.files}/>
-      <Comments comments={testData.comments}/>
+      <SectionTitle sectionData={sectionData} />
+      <ChordProgression chordProgression={chordProgression}  />
+      <Files files={files}/>
+      <Comments comments={comments}/>
       <Submit />
     </div>
   );
