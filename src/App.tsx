@@ -5,6 +5,7 @@ import * as Types from './types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 
+
 const App:React.FC<Types.appProps> = ({sectionData, chordProgression, comments, files}) => {
 
 
@@ -77,6 +78,9 @@ const App:React.FC<Types.appProps> = ({sectionData, chordProgression, comments, 
       </div>
     )
   }
+
+  
+
 
   return (
     <div className="root">
