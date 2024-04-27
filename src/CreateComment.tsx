@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {comments as initialComments}  from './testData'
 import { CreateCommentProps, comment, commentsProps } from './types';
 
-export const Submit:React.FC<CreateCommentProps> = ({comments, setComments}) => {
+export const CreateComment:React.FC<CreateCommentProps> = ({comments, setComments}) => {
  // const [comments, setComment] = useState(initialComments)
 
   const handleAddComment = (newComment:comment) => {

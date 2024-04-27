@@ -13,7 +13,6 @@ export type sectionDataProps = {
 
 
 
-
 export type chordProgression = string[]
 
 export type chordProgressionProps = {
@@ -42,10 +41,13 @@ export type commentsProps = {
     comments: comment[]
 }
 
+
+
 export type CreateCommentProps = {
     comments: comment[],
     setComments: React.Dispatch<(comments: comment[]) => comment[]>
 }
+
 
 export type appProps = {
     sectionData: sectionData,

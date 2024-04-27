@@ -5,7 +5,7 @@ import * as Types from './types';
 import { Files } from './Files';
 import { ChordProgression } from './ChordProgression';
 import { Comments } from './Comments';
-import { Submit } from './Submit';
+import { CreateComment } from './CreateComment';
 import { SectionTitle } from './SectionTitle';
 import { useState } from 'react';
 
@@ -21,7 +21,7 @@ const App:React.FC<Types.appProps> = ({sectionData, chordProgression, comments, 
       <ChordProgression chordProgression={chordProgression}  />
       <Files files={files}/>
       <Comments comments={commentsAsState}/>
-      <Submit comments={commentsAsState} setComments={setCommentsAsState}/>
+      <CreateComment comments={commentsAsState} setComments={setCommentsAsState}/>
     </div>
   );
 }
