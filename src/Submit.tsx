@@ -13,11 +13,6 @@ export const Submit:React.FC<CreateCommentProps> = ({comments, setComments}) => 
 
   return (
     <div>
-      {comments.map((comment, index) => (
-        <div key={index}>
-          <p>{comment.name}: {comment.commentText}</p>
-        </div>
-      ))}
       <button onClick={() => handleAddComment({name: "New User", commentText: "This is a new comment."})}>
         Add Comment
       </button>
