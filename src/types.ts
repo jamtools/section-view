@@ -1,4 +1,6 @@
 
+import React, { Dispatch } from "react"
+
 export type sectionData = {
     name: string,
     description: string,
@@ -40,6 +42,10 @@ export type commentsProps = {
     comments: comment[]
 }
 
+export type CreateCommentProps = {
+    comments: comment[],
+    setComments: React.Dispatch<(comments: comment[]) => comment[]>
+}
 
 export type appProps = {
     sectionData: sectionData,
