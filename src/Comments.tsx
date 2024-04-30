@@ -18,12 +18,3 @@ export const Comments: React.FC<Types.commentsProps> = ({ comments = initialComm
     </div>
   );
 };
-
-
-
-//
-
-
-
-
-//

@@ -12,8 +12,10 @@ html {font-size: 62.5%;}
   background-color: rgb(95, 193, 208);
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
+
+
 
 div {
   border: 1px solid black;
