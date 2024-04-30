@@ -5,7 +5,7 @@ import {useState} from 'react'
 import {comments as initialComments}  from './testData'
 import { comment } from './types';
 
-export const Comments: React.FC<Types.commentsProps> = ({ comments }) => {
+export const Comments: React.FC<Types.commentsProps> = ({ comments = initialComments }) => {
   return (
     <div className="comments">
       <span>3 Comments</span>

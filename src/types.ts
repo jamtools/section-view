@@ -45,7 +45,7 @@ export type commentsProps = {
 
 export type CreateCommentProps = {
     comments: comment[],
-    setComments: React.Dispatch<(comments: comment[]) => comment[]>
+    setComments: (comments: comment[]) => void;
 }
 
 

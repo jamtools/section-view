@@ -1,14 +1,14 @@
-import {useState} from 'react'
-import {comments as initialComments}  from './testData'
+
 import { CreateCommentProps, comment, commentsProps } from './types';
 
 export const CreateComment:React.FC<CreateCommentProps> = ({comments, setComments}) => {
- // const [comments, setComment] = useState(initialComments)
+
 
   const handleAddComment = (newComment:comment) => {
-    setComments(
-      comments => [...comments, newComment]
-    )
+    let result = [...comments]
+    result.push(newComment)
+    setComments(result)
+    console.log(result)
   }
 
   return (
