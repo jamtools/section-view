@@ -1,6 +1,6 @@
 import * as Types from './types';
 
-export const Files: React.FC<Types.filesProps> = ({ files }) => {
+export const Files: React.FC<Types.FilesProps> = ({ files }) => {
   return (
     <div className="files">
       <span>+ Files</span>

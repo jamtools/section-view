@@ -1,15 +1,15 @@
 
 import * as Types from './types'
 
-export const sectionData: Types.sectionData = {
+export const sectionData: Types.SectionData = {
   name: 'Intro',
   description: 'This intro section consists of a tuba quartet in the style of DJ Templeton & The Windsurfers',
   numRevisions: 42,
 };
 
-export const currentChordProgression: Types.chordProgression = ['C', 'Dm', 'F', 'G']
+export const currentChordProgression: Types.ChordProgression = ['C', 'Dm', 'F', 'G']
 
-export const files: Types.file[] = [
+export const files: Types.File[] = [
   {
     title: 'Bass.mp3',
     numComments: 2,
@@ -33,7 +33,7 @@ export const files: Types.file[] = [
 ]
 
 
-export const comments: Types.comment[] = [
+export const comments: Types.Comment[] = [
   {
     name: 'Jerry',
     commentText: 'My name is Schmoopie and I love this song. It reminds me of my grandpa'

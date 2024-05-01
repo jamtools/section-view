@@ -1,57 +1,56 @@
 
-import React, { Dispatch } from "react"
 
-export type sectionData = {
+export type SectionData = {
     name: string,
     description: string,
     numRevisions: number
 }
 
-export type sectionDataProps = {
-    sectionData: sectionData
+export type SectionDataProps = {
+    sectionData: SectionData
 }
 
 
 
-export type chordProgression = string[]
+export type ChordProgression = string[]
 
-export type chordProgressionProps = {
-    chordProgression: chordProgression
+export type ChordProgressionProps = {
+    chordProgression: ChordProgression
 }
 
 
 
-export type file = {
+export type File = {
     title: string,
     numComments: number,
     id: string,
 }
 
-export type filesProps = {
-    files: file[]
+export type FilesProps = {
+    files: File[]
 }
 
 
-export type comment = {
+export type Comment = {
     name: string,
     commentText: string
 }
 
 export type commentsProps = {
-    comments: comment[]
+    comments: Comment[]
 }
 
 
 
 export type CreateCommentProps = {
-    comments: comment[],
-    setComments: (comments: comment[]) => void;
+    comments: Comment[],
+    setComments: (comments: Comment[]) => void;
 }
 
 
-export type appProps = {
-    sectionData: sectionData,
-    chordProgression: chordProgression,
-    files: file[],
-    comments: comment[]
+export type AppProps = {
+    sectionData: SectionData,
+    chordProgression: ChordProgression,
+    files: File[],
+    comments: Comment[]
 }

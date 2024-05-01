@@ -1,6 +1,6 @@
 import * as Types from './types';
 
-export const SectionTitle: React.FC<Types.sectionDataProps> = ({ sectionData }) => {
+export const SectionTitle: React.FC<Types.SectionDataProps> = ({ sectionData }) => {
   return (
     <div className="section-title">
       <div className='text'>

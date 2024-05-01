@@ -11,9 +11,9 @@ import { useState } from 'react';
 
 
 
-const App:React.FC<Types.appProps> = ({sectionData, chordProgression, comments, files}) => {
+const App:React.FC<Types.AppProps> = ({sectionData, chordProgression, comments, files}) => {
 
-  const [commentsAsState, setCommentsAsState] = useState<Types.comment[]>(comments)
+  const [commentsAsState, setCommentsAsState] = useState<Types.Comment[]>(comments)
 
   return (
     <div className="root">

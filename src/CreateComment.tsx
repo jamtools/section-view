@@ -1,21 +1,39 @@
 
-import { CreateCommentProps, comment, commentsProps } from './types';
+import { CreateCommentProps, Comment, commentsProps } from './types';
+import {useState} from 'react';
 
-export const CreateComment:React.FC<CreateCommentProps> = ({comments, setComments}) => {
+export const CreateComment: React.FC<CreateCommentProps> = ({ comments, setComments }) => {
 
+  const [name, setName] = useState('');
+  const [commentText, setCommentText] = useState('');
 
-  const handleAddComment = (newComment:comment) => {
-    let result = [...comments]
-    result.push(newComment)
-    setComments(result)
-    console.log(result)
+  const handleAddComment = () => {
+    const newComment = { name, commentText };
+    const result = [...comments, newComment];
+    setComments(result);
   }
 
   return (
     <div>
-      <button onClick={() => handleAddComment({name: "New User", commentText: "This is a new comment."})}>
-        Add Comment
-      </button>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        handleAddComment();
+        setCommentText('');
+      }}>
+        <input 
+          type='text'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder='Enter your name'
+        />
+        <input 
+          type='text'
+          value={commentText}
+          onChange={(e) => setCommentText(e.target.value)}
+          placeholder='Type your thoughts here'
+        />
+        <button type='submit'>Add Comment</button>
+      </form>
     </div>
   );
 };
