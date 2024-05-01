@@ -6,10 +6,6 @@ export type SectionData = {
     numRevisions: number
 }
 
-export type SectionDataProps = {
-    sectionData: SectionData
-}
-
 
 
 export type ChordProgression = string[]
