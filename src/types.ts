@@ -26,9 +26,6 @@ export type File = {
     id: string,
 }
 
-export type FilesProps = {
-    files: File[]
-}
 
 
 export type Comment = {
