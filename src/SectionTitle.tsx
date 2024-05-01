@@ -1,7 +1,7 @@
-import * as Types from './types';
+import * as types from './types';
 
 type SectionDataProps = {
-  sectionData: Types.SectionData
+  sectionData: types.SectionData
 }
 
 export const SectionTitle: React.FC<SectionDataProps> = ({ sectionData }) => {

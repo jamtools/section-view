@@ -1,10 +1,10 @@
-import * as Types from './types';
+import * as types from './types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
 import {comments as initialComments}  from './testData'
 
 
-export const Comments: React.FC<Types.commentsProps> = ({ comments = initialComments }) => {
+export const Comments: React.FC<types.commentsProps> = ({ comments = initialComments }) => {
   return (
     <div className="comments">
       <span>3 Comments</span>

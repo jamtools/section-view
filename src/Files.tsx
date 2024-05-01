@@ -1,7 +1,7 @@
-import * as Types from './types';
+import * as types from './types';
 
 type FilesProps = {
-  files: Types.File[]
+  files: types.File[]
 }
 
 export const Files: React.FC<FilesProps> = ({ files }) => {

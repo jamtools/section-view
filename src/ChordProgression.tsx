@@ -1,7 +1,7 @@
-import * as Types from './types';
+import * as types from './types';
 
 type ChordProgressionProps = {
-  chordProgression: Types.ChordProgression
+  chordProgression: types.ChordProgression
 }
 
 
