@@ -1,6 +1,11 @@
 import * as Types from './types';
 
-export const ChordProgression: React.FC<Types.ChordProgressionProps> = ({ chordProgression }) => {
+type ChordProgressionProps = {
+  chordProgression: Types.ChordProgression
+}
+
+
+export const ChordProgression: React.FC<ChordProgressionProps> = ({ chordProgression }) => {
   return (
     <div className="chords">
       <ol>

@@ -14,18 +14,12 @@ export type SectionDataProps = {
 
 export type ChordProgression = string[]
 
-export type ChordProgressionProps = {
-    chordProgression: ChordProgression
-}
-
-
 
 export type File = {
     title: string,
     numComments: number,
     id: string,
 }
-
 
 
 export type Comment = {
