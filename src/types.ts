@@ -46,11 +46,3 @@ export type CreateCommentProps = {
     comments: Comment[],
     setComments: (comments: Comment[]) => void;
 }
-
-
-export type AppProps = {
-    sectionData: SectionData,
-    chordProgression: ChordProgression,
-    files: File[],
-    comments: Comment[]
-}
