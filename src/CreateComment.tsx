@@ -1,6 +1,14 @@
 
-import { CreateCommentProps, Comment, commentsProps } from './types';
+import {Comment} from './types';
 import {useState} from 'react';
+
+
+type CreateCommentProps = {
+  comments: Comment[],
+  setComments: (comments: Comment[]) => void;
+}
+
+
 
 export const CreateComment: React.FC<CreateCommentProps> = ({ comments, setComments }) => {
 

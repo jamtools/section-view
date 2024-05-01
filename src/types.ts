@@ -39,10 +39,3 @@ export type Comment = {
 export type commentsProps = {
     comments: Comment[]
 }
-
-
-
-export type CreateCommentProps = {
-    comments: Comment[],
-    setComments: (comments: Comment[]) => void;
-}
