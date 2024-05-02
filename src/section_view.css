@@ -45,7 +45,7 @@ div {
   font-size: 2rem;
 }
 
-.section-title .buttons {
+.section-title .revisions {
 flex-grow: 1;
 display: flex;
   justify-content: center;

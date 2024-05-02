@@ -11,7 +11,7 @@ export const SectionTitle: React.FC<SectionDataProps> = ({ sectionData }) => {
         <h1> {sectionData.name} </h1>
         <p>{sectionData.description}</p>
       </div>
-      <div className='buttons'>
+      <div className='revisions'>
         <button> {sectionData.numRevisions} revisions </button>
         <button> Save revision </button>
       </div>
