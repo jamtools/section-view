@@ -7,7 +7,7 @@ import {comments as initialComments}  from './testData'
 export const Comments: React.FC<types.commentsProps> = ({ comments = initialComments }) => {
   return (
     <div className="comments">
-      <span>3 Comments</span>
+      <span>{comments.length} Comments</span>
       <div className="display-comments">
         {comments.map((comment, index) => {
           return <>
