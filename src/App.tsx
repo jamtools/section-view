@@ -8,6 +8,7 @@ import { Comments } from './Comments';
 import { CreateComment } from './CreateComment';
 import { SectionTitle } from './SectionTitle';
 import { useState } from 'react';
+import { foo } from './client';
 
 
 
@@ -22,6 +23,7 @@ type AppProps = {
 const App:React.FC<AppProps> = ({sectionData, chordProgression, comments, files}) => {
 
   const [commentsAsState, setCommentsAsState] = useState<types.Comment[]>(comments)
+  
 
   return (
     <div className="root">
