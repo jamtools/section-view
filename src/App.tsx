@@ -8,7 +8,6 @@ import { Comments } from './Comments';
 import { CreateComment } from './CreateComment';
 import { SectionTitle } from './SectionTitle';
 import { useState } from 'react';
-import { foo } from './client';
 
 
 
@@ -30,7 +29,7 @@ const App:React.FC<AppProps> = ({sectionData, chordProgression, comments, files}
       <SectionTitle sectionData={sectionData} />
       <ChordProgression chordProgression={chordProgression}  />
       <Files files={files}/>
-      <Comments comments={commentsAsState}/>
+      <Comments comments={commentsAsState} setComments={setCommentsAsState}/>
       <CreateComment comments={commentsAsState} setComments={setCommentsAsState}/>
     </div>
   );

@@ -25,4 +25,5 @@ export type Comment = {
 
 export type commentsProps = {
     comments: Comment[]
+    setComments: (comments: Comment[]) => void;
 }

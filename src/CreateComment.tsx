@@ -17,9 +17,21 @@ export const CreateComment: React.FC<CreateCommentProps> = ({ comments, setComme
 
   const handleAddComment = () => {
     const newComment = { name, commentText };
-    const result = [...comments, newComment];
-    setComments(result);
+  
+    // Fetch existing comments from localStorage
+    const storedComments = localStorage.getItem('comments');
+    const existingComments = storedComments ? JSON.parse(storedComments) : [];
+  
+    // Add the new comment to the array
+    const updatedComments = [...existingComments, newComment];
+  
+    // Save the updated array back to localStorage
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+  
+    // Update the local state to reflect the new list of comments
+    setComments(updatedComments);
   }
+  
 
   return (
     <div>
