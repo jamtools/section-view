@@ -1,7 +1,7 @@
 import * as types from './types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
-import {comments as initialComments}  from './testData'
+import {comments as initialComments}  from './sampleData'
 import { useEffect} from 'react';
 
 

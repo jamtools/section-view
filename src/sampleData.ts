@@ -35,15 +35,12 @@ export const files: Types.File[] = [
 
 export const comments: Types.Comment[] = [
   {
-    name: 'Jerry',
-    commentText: 'My name is Schmoopie and I love this song. It reminds me of my grandpa'
+    name: 'Sample User',
+    commentText: 'Hey! This is a comment'
   },
   {
-    name: 'Lerry',
-    commentText: 'jokes on you! Im deaf.'
+    name: 'Sample User',
+    commentText: 'Hey! This is a comment'
   },
-  {
-    name: 'Jerry',
-    commentText: 'Notice the tinnitus ringing in your ears, let the hiss from your damaged hearing remind you of peaceful ocean waves...'
-  },
+  
 ]
