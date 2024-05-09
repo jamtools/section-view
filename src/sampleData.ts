@@ -42,5 +42,4 @@ export const comments: Types.Comment[] = [
     name: 'Sample User',
     commentText: 'Hey! This is a comment'
   },
-  
 ]
