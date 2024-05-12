@@ -14,8 +14,9 @@ export const Comments: React.FC<types.commentsProps> = ({ comments = initialComm
 
     // Check if there are stored comments, otherwise use initial comments
     setComments(storedComments || initialComments);
-  }, []); // Empty dependency array ensures this runs once on mount
-  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   return (
     <div className="comments">
