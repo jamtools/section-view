@@ -1,51 +1,70 @@
-import * as types from './types';
-import React, { useState, FormEvent } from 'react'
-
-
-
+import {useActions} from './actions/useActions';
+import {useGlobalStore} from './hooks/useGlobalStore';
+import React, {useState, FormEvent} from 'react';
+import {SectionData} from './types';
 
 type SectionDataProps = {
-  sectionData: types.SectionData,
+    sectionId: string;
 }
 
-export const SectionTitle: React.FC<SectionDataProps> = ({ sectionData }) => {
-  const [showForm, setShowForm] = useState(false);    //shows the form for when you're entering a new title
-  const [currentTitle, setCurrentTitle] = useState(sectionData.name);
+export const SectionTitle: React.FC<SectionDataProps> = ({sectionId}) => {
+    const actions = useActions();
 
-  let handleToggleForm = () => {
-      console.log('button clicked');
-      setShowForm(!showForm);
-  };
+    const globalStore = useGlobalStore();
+    const section = globalStore.getSection(sectionId);
 
-  // Handle form submission with FormData for TypeScript
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      const formData = new FormData(event.currentTarget); // Using event.currentTarget to reference the form
-      const newName = formData.get('newName') as string; 
-      setCurrentTitle(newName); 
-      setShowForm(false);
-  };
+    const [isEditingTitle, setIsEditingTitle] = useState(false);
+    const [draftTitle, setDraftTitle] = useState(section.title);
 
-  return (
-      <div className="section-title">
-          <div className='text'>
-              <h1>{currentTitle}</h1>
-              <p>{sectionData.description}</p>
-              <button onClick={handleToggleForm}>
-                  {showForm ? 'Cancel Editing' : 'Rename Section'}
-              </button>
-          </div>
-          {showForm && (
-              <form onSubmit={handleSubmit}>
-                  <label htmlFor="newName">New Name:</label>
-                  <input id="newName" name="newName" type="text" placeholder="Enter new section name" />
-                  <button type="submit">Update Name</button>
-              </form>
-          )}
-          <div className='revisions'>
-              <button>{sectionData.numRevisions} revisions</button>
-              <button>Save revision</button>
-          </div>
-      </div>
-  );
+    const handleDraftTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDraftTitle(e.target.value);
+    };
+
+    const handleToggleForm = () => {
+        console.log('button clicked');
+        setIsEditingTitle(!isEditingTitle);
+    };
+
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const newTitle = draftTitle;
+        const newSection: SectionData = {
+            ...section,
+            title: newTitle,
+        }
+
+        actions.updateSection(sectionId, newSection);
+        // setDraftTitle(newTitle);
+        setIsEditingTitle(false);
+    };
+
+    return (
+        <div className='section-title'>
+            <div className='text'>
+                <h1>{section.title}</h1>
+                <p>{section.description}</p>
+                <button onClick={handleToggleForm}>
+                    {isEditingTitle ? 'Cancel Editing' : 'Rename Section'}
+                </button>
+            </div>
+            {isEditingTitle && (
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor='newName'>New Name:</label>
+                    <input
+                        value={draftTitle}
+                        onChange={handleDraftTitleChange}
+                        id='newName'
+                        name='newName'
+                        type='text'
+                        placeholder='Enter new section name'
+                    />
+                    <button type="submit">Update Name</button>
+                </form>
+            )}
+            <div className='revisions'>
+                <button>{section.numRevisions} revisions</button>
+                <button>Save revision</button>
+            </div>
+        </div>
+    );
 };

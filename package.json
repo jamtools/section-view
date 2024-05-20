@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.ts*",
     "fix": "npm run lint -- --fix",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "ci": "npm run lint && npm run check-types && npm run build"
   },
   "eslintConfig": {
     "extends": [

@@ -16,7 +16,7 @@ export type EntityPointer = {
 export type SectionData = {
     id: string;
     projectId: string;
-    name: string;
+    title: string;
     description: string;
     numRevisions: number;
     chordProgression: ChordProgression;

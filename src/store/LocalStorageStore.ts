@@ -31,7 +31,7 @@ export class LocalStorageStore implements IStore {
                 projectId: 'project-1',
                 chordProgression: ['C', 'Dm', 'F', 'G'],
                 description: 'This is the intro',
-                name: 'Intro',
+                title: 'Intro',
                 numRevisions: 3,
             }
         ];
@@ -46,6 +46,13 @@ export class LocalStorageStore implements IStore {
                 entityType: EntityType.SECTION,
                 title: 'Bass.mp3',
             },
+            {
+                id: 'file-2',
+                projectId: 'project-1',
+                entityId: 'section-1',
+                entityType: EntityType.SECTION,
+                title: 'Chunky Monkey.mp3',
+            },
         ];
     }
 
@@ -54,9 +61,25 @@ export class LocalStorageStore implements IStore {
             {
                 id: 'comment-1',
                 projectId: 'project-1',
-                message: '',
+                message: 'Hey what\'s up',
                 entityType: EntityType.SECTION,
                 entityId: 'section-1',
+                username: 'username-1',
+            },
+            {
+                id: 'comment-2',
+                projectId: 'project-1',
+                message: 'Yeah',
+                entityType: EntityType.FILE,
+                entityId: 'file-1',
+                username: 'username-1',
+            },
+            {
+                id: 'comment-3',
+                projectId: 'project-1',
+                message: 'Yeah 3',
+                entityType: EntityType.FILE,
+                entityId: 'file-1',
                 username: 'username-1',
             },
         ];

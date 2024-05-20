@@ -1,5 +1,5 @@
 import {IStore} from '../store/IStore';
-import {CommentData, FullProjectData, ProjectData} from '../types';
+import {CommentData, FullProjectData, ProjectData, SectionData} from '../types';
 import {IClient} from './IClient';
 
 export class LocalStorageClient implements IClient {
@@ -41,5 +41,9 @@ export class LocalStorageClient implements IClient {
     fetchAllProjects = async (): Promise<ProjectData[]> => {
         const projects = await this.persistentStore.getAllProjects();
         return projects;
+    }
+
+    updateSection = async (sectionId: string, section: SectionData): Promise<SectionData> => {
+        return section;
     }
 }

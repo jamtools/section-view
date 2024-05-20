@@ -1,9 +1,10 @@
 import {useClient} from '../hooks/useClient';
 import {useGlobalStore} from '../hooks/useGlobalStore';
-import {CommentData, EntityPointer} from '../types';
+import {CommentData, EntityPointer, SectionData} from '../types';
 
 type UseActionsHookValue = {
     addCommentToEntity(text: string, entityPointer: EntityPointer): Promise<CommentData>;
+    updateSection(sectionId: string, section: SectionData): Promise<SectionData>;
 }
 
 export const useActions = (): UseActionsHookValue => {
@@ -29,7 +30,15 @@ export const useActions = (): UseActionsHookValue => {
         return comment;
     };
 
+    const updateSection = async (sectionId: string, section: SectionData) => {
+        const newSection = await client.updateSection(sectionId, section);
+        globalStore.updateSection(sectionId, newSection);
+
+        return section;
+    };
+
     return {
         addCommentToEntity,
+        updateSection,
     };
 }

@@ -1,4 +1,4 @@
-import {createContext, useCallback, useContext, useMemo, useState} from 'react';
+import {createContext, useContext, useMemo, useState} from 'react';
 import {CommentData, EntityPointer, EntityType, FileData, FullProjectData, SectionData} from '../types';
 import {matchesEntityPointer} from '../utils';
 
@@ -21,6 +21,7 @@ type UseGlobalStoreHookValue = {
     getSection(sectionId: string): SectionData;
 
     addComment(comment: CommentData): void;
+    updateSection(sectionId: string, section: SectionData): void;
 }
 
 export const useGlobalStore = (): UseGlobalStoreHookValue => {
@@ -48,16 +49,38 @@ export const useGlobalStore = (): UseGlobalStoreHookValue => {
 
             globalStore.setFullProjectData(newState);
         },
+
+        updateSection: (sectionId, updatedSection) => {
+            const state = globalStore.getFullProjectData();
+
+            const sections = state.sections.map(existingSection => {
+                if (existingSection.id === sectionId) {
+                    return updatedSection;
+                }
+
+                return existingSection;
+            });
+
+            const newState: FullProjectData = {
+                ...state,
+                sections,
+            };
+
+            globalStore.setFullProjectData(newState);
+        }
     }), [projectData, globalStore]);
 };
 
 export const GlobalStoreProvider = (props: GlobalStoreProviderProps) => {
     const [fullProjectData, setFullProjectData] = useState(props.initialProjectData);
 
-    const getFullProjectData = useCallback(() => fullProjectData, [fullProjectData]);
+    const value = useMemo(() => ({
+        getFullProjectData: () => fullProjectData,
+        setFullProjectData,
+    }), [fullProjectData, setFullProjectData]);
 
     return (
-        <globalStoreContext.Provider value={{getFullProjectData, setFullProjectData}}>
+        <globalStoreContext.Provider value={value}>
             {props.children}
         </globalStoreContext.Provider>
     );
