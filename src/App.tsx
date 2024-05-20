@@ -7,30 +7,33 @@ import { ChordProgression } from './ChordProgression';
 import { Comments } from './Comments';
 import { CreateComment } from './CreateComment';
 import { SectionTitle } from './SectionTitle';
-import { useState } from 'react';
-
-
-
+import {useGlobalStore} from './hooks/useGlobalStore';
 
 type AppProps = {
-  sectionData: types.SectionData,
-  chordProgression: types.ChordProgression,
-  files: types.File[],
-  comments: types.Comment[]
+  projectId: string;
+  sectionId: string;
 }
 
-const App:React.FC<AppProps> = ({sectionData, chordProgression, comments, files}) => {
+const App: React.FC<AppProps> = ({projectId, sectionId}) => {
+  const globalStore = useGlobalStore();
+  const section = globalStore.getSection(sectionId);
+  // const comments = globalStore.getCommentsForSection(sectionId);
+  const files = globalStore.getFilesForSection(sectionId);
 
-  const [commentsAsState, setCommentsAsState] = useState<types.Comment[]>(comments)
-  
+  // const [commentsAsState, setCommentsAsState] = useState<types.CommentData[]>(comments)
+
+  const sectionPointer: types.EntityPointer = {
+    entityId: sectionId,
+    entityType: types.EntityType.SECTION,
+  };
 
   return (
     <div className="root">
-      <SectionTitle sectionData={sectionData} />
-      <ChordProgression chordProgression={chordProgression}  />
+      <SectionTitle sectionData={section} />
+      <ChordProgression chordProgression={section.chordProgression}  />
       <Files files={files}/>
-      <Comments comments={commentsAsState} setComments={setCommentsAsState}/>
-      <CreateComment comments={commentsAsState} setComments={setCommentsAsState}/>
+      <Comments entityPointer={sectionPointer}/>
+      <CreateComment entityPointer={sectionPointer}/>
     </div>
   );
 }

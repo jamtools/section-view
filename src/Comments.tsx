@@ -1,33 +1,28 @@
-import * as types from './types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
-import {comments as initialComments}  from './sampleData'
-import { useEffect} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faFaceSmile} from '@fortawesome/free-solid-svg-icons';
 
+import {EntityPointer} from './types';
+import {useGlobalStore} from './hooks/useGlobalStore';
 
-export const Comments: React.FC<types.commentsProps> = ({ comments = initialComments, setComments }) => {
+type CommentsProps = {
+    entityPointer: EntityPointer;
+}
 
-  useEffect(() => {
-    // Attempt to load comments from localStorage
-    const storedCommentsJSON = localStorage.getItem('comments');
-    const storedComments = storedCommentsJSON ? JSON.parse(storedCommentsJSON) : null;
+export const Comments: React.FC<CommentsProps> = ({entityPointer}) => {
+    const globalStore = useGlobalStore();
+    const comments = globalStore.getCommentsForEntity(entityPointer);
 
-    // Check if there are stored comments, otherwise use initial comments
-    setComments(storedComments || initialComments);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-
-  return (
-    <div className="comments">
-      <span>{comments.length} Comments</span>
-      <div className="display-comments">
-        {comments.map((comment, index) => {
-          return <>
-            <p><FontAwesomeIcon icon={faFaceSmile} /> {comments[index].name}: {comments[index].commentText}</p>
-          </>;
-        })}
-      </div>
-    </div>
-  );
+    return (
+        <div className="comments">
+            <span>{comments.length} Comments</span>
+            <div className="display-comments">
+                {comments.map(comment => (
+                    <p key={comment.id}>
+                        <FontAwesomeIcon icon={faFaceSmile} />
+                        {comment.username}: {comment.message}
+                    </p>
+                ))}
+            </div>
+        </div>
+    );
 };
