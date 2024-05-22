@@ -16,7 +16,7 @@ export const CreateComment: React.FC<CreateCommentProps> = ({entityPointer}) => 
     const handleAddComment = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        await actions.addCommentToEntity(commentText, entityPointer);
+        await actions.addCommentToEntity(commentText, name, entityPointer);
         setCommentText('');
     }
 

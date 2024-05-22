@@ -3,7 +3,7 @@ import {useGlobalStore} from '../hooks/useGlobalStore';
 import {CommentData, EntityPointer, SectionData} from '../types';
 
 type UseActionsHookValue = {
-    addCommentToEntity(text: string, entityPointer: EntityPointer): Promise<CommentData>;
+    addCommentToEntity(text: string, username: string, entityPointer: EntityPointer): Promise<CommentData>;
     updateSection(sectionId: string, section: SectionData): Promise<SectionData>;
 }
 
@@ -15,13 +15,13 @@ export const useActions = (): UseActionsHookValue => {
     // const projectId = globalStore.getCurrentProjectId()
     const projectId = 'project-1';
 
-    const addCommentToEntity = async (message: string, entityPointer: EntityPointer) => {
+    const addCommentToEntity = async (message: string, username: string, entityPointer: EntityPointer) => {
         const commentPayload: Omit<CommentData, 'id'> = {
             entityType: entityPointer.entityType,
             entityId: entityPointer.entityId,
             message,
             projectId,
-            username: 'mickmister',
+            username,
         };
 
         const comment = await client.addComment(commentPayload);
