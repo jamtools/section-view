@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 import './App.css';
 import './css_reset.css'
+import './index.css'
 import './section_view.css';
 import * as types from './types';
 import {GlobalStoreProvider} from './hooks/useGlobalStore';
