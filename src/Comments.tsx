@@ -18,7 +18,10 @@ export const Comments: React.FC<CommentsProps> = ({entityPointer}) => {
             <span>{comments.length} {plural('Comment', comments.length)}</span>
             <div className="display-comments">
                 {comments.map(comment => (
-                    <p key={comment.id}>
+                    <p
+                        key={comment.id}
+                        id={comment.id}
+                    >
                         <FontAwesomeIcon icon={faFaceSmile} />
                         {comment.username}: {comment.message}
                     </p>

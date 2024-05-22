@@ -1,37 +1,67 @@
+import {useState} from 'react';
+
 import './App.css';
 import './css_reset.css'
 import './section_view.css';
 import * as types from './types';
-import {Files} from './Files';
-import {ChordProgression} from './ChordProgression';
-import {Comments} from './Comments';
-import {CreateComment} from './CreateComment';
-import {SectionTitle} from './SectionTitle';
-import {useGlobalStore} from './hooks/useGlobalStore';
+import {GlobalStoreProvider} from './hooks/useGlobalStore';
+import SectionPage from './SectionPage';
+import {IClient} from './client/IClient';
+import {ClientProvider} from './hooks/useClient';
+import {useMount} from './hooks/useMount';
 
 type AppProps = {
     projectId: string;
     sectionId: string;
+
+    client: IClient;
 }
 
-const App: React.FC<AppProps> = ({projectId, sectionId}) => {
-    const globalStore = useGlobalStore();
-    const section = globalStore.getSection(sectionId);
-    const files = globalStore.getFilesForSection(sectionId);
+const App: React.FC<AppProps> = ({projectId, sectionId, client}) => {
+    const [initialProjectData, setInitialProjectData] = useState<types.FullProjectData | null>(null);
+    const [error, setError] = useState('');
 
-    const sectionPointer: types.EntityPointer = {
-        entityId: sectionId,
-        entityType: types.EntityType.SECTION,
-    };
+    useMount(async () => {
+        const projectDataOrError = await client.fetchFullDataForProject(projectId);
+
+        if (projectDataOrError instanceof Error) {
+            alert(projectDataOrError.message);
+            setError(projectDataOrError.message);
+            return;
+        }
+
+        setInitialProjectData(projectDataOrError);
+    });
+
+    if (error) {
+        return (
+            <p>
+                {error}
+            </p>
+        );
+    }
+
+    if (!initialProjectData) {
+        return (
+            <p>
+                Loading
+            </p>
+        );
+    }
+
+    const pageContent = (
+        <SectionPage
+            projectId={projectId}
+            sectionId={sectionId}
+        />
+    );
 
     return (
-        <div className="root">
-            <SectionTitle sectionId={sectionId} />
-            <ChordProgression chordProgression={section.chordProgression} />
-            <Files files={files} />
-            <Comments entityPointer={sectionPointer} />
-            <CreateComment entityPointer={sectionPointer} />
-        </div>
+        <ClientProvider client={client}>
+            <GlobalStoreProvider initialProjectData={initialProjectData}>
+                {pageContent}
+            </GlobalStoreProvider>
+        </ClientProvider>
     );
 }
 
