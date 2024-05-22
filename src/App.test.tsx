@@ -3,10 +3,12 @@ import App from './App';
 import {IClient} from './client/IClient';
 import {ProjectData, CommentData, SectionData, EntityType, FileData} from './types';
 import {LocalStorageStore, StoreData} from './store/LocalStorageStore';
-import {MockLocalStorage} from './store/MockLocalStorage';
+import {MockLocalStorageDependency} from './store/MockLocalStorageDependency';
 import {LocalStorageClient} from './client/LocalStorageClient';
 
 // import * as testData from './sampleData'
+
+window.alert = () => {};
 
 const makeTestStore = (): StoreData => {
     const initialProjects: ProjectData[] = [
@@ -87,13 +89,16 @@ describe('App', () => {
     beforeEach(() => {
         const initialStore = makeTestStore();
 
-        const localStorageDependency = new MockLocalStorage(initialStore);
+        const localStorageDependency = new MockLocalStorageDependency(initialStore);
         const store = new LocalStorageStore(localStorageDependency);
         client = new LocalStorageClient(store);
     });
 
-    it('initializing', () => {
-        it('show "Loading"', async () => {
+    describe('initializing', () => {
+        it('should show "Loading"', async () => {
+            // this method is made blocking for this specific test
+            client.fetchFullDataForProject = (() => new Promise(r => setTimeout(r)));
+
             render(
                 <App
                     projectId={'project-1'}
@@ -101,11 +106,30 @@ describe('App', () => {
                     client={client}
                 />
             );
+
+            expect(screen.getByText(/Loading/)).toBeDefined();
         });
-        expect(screen.getByText(/Loading/)).toBeDefined();
+
+        it('should show client error', async () => {
+            client.fetchFullDataForProject = jest.fn().mockResolvedValue(new Error('Some error'));
+
+            render(
+                <App
+                    projectId={'project-1'}
+                    sectionId={'section-1'}
+                    client={client}
+                />
+            );
+
+            await waitFor(() => {
+                expect(screen.queryByText(/Loading/)).toBeNull();
+            });
+
+            expect(screen.getByText(/Some error/)).toBeDefined();
+        });
     });
 
-    it('initialized', () => {
+    describe('initialized', () => {
         it('should show the section title and description', async () => {
             render(
                 <App

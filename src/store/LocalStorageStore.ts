@@ -1,5 +1,4 @@
 import {CommentData, EntityType, FileData, ProjectData, SectionData} from '../types';
-import {IStore} from './IStore';
 
 export interface LocalStorageDependency {
     getItem(key: string): string | null;
@@ -22,7 +21,7 @@ export type StoreData = {
     comments: CommentData[];
 }
 
-export class LocalStorageStore implements IStore {
+export class LocalStorageStore {
     private ls: LocalStorageDependency;
 
     private currentData: StoreData;

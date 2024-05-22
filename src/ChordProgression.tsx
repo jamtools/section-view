@@ -9,7 +9,7 @@ export const ChordProgression: React.FC<ChordProgressionProps> = ({ chordProgres
   return (
     <div className="chords">
       <ol>
-        {chordProgression.map((chord, index) => <li>{chord}</li>)}
+        {chordProgression.map((chord, index) => <li key={index}>{chord}</li>)}
       </ol>
     </div>
   );

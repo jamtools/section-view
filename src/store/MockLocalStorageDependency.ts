@@ -1,6 +1,6 @@
 import {LocalStorageDependency} from './LocalStorageStore';
 
-export class MockLocalStorage<T extends Record<string, object>> implements LocalStorageDependency {
+export class MockLocalStorageDependency<T extends Record<string, object>> implements LocalStorageDependency {
     public currentData: T;
 
     constructor(data: T) {

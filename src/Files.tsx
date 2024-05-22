@@ -16,7 +16,10 @@ export const Files: React.FC<FilesProps> = ({files}) => {
                 const numComments = globalStore.getCommentsForFile(file.id).length;
 
                 return (
-                    <div id={file.id}>
+                    <div
+                        key={file.id}
+                        id={file.id}
+                    >
                         {file.title}
                         <br></br> <br></br>
                         {numComments}

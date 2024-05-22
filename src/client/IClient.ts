@@ -1,4 +1,4 @@
-import {CommentData, FullProjectData, ProjectData, SectionData} from '../types';
+import {CommentData, FullProjectData, SectionData} from '../types';
 
 export interface IClient {
     fetchFullDataForProject: (projectId: string) => Promise<FullProjectData | Error>;
