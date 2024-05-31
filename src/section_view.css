@@ -1,11 +1,11 @@
-
-
+/* Reset and Global Styles */
 * { 
   box-sizing: border-box;
 }
 
-html {font-size: 62.5%;}
-
+html {
+  font-size: 62.5%;
+}
 
 .root {
   display: flex;
@@ -15,23 +15,12 @@ html {font-size: 62.5%;}
   min-height: 100vh;
 }
 
-
-
 div {
   border: 1px solid black;
   border-collapse: collapse;
-
 }
 
-
-
-
-
-
-
-/* SECTION TITLE STYLES */
-
-
+/* Section Title Styles */
 .section-title {
   flex-grow: 1;
   display: flex;
@@ -46,8 +35,8 @@ div {
 }
 
 .section-title .revisions {
-flex-grow: 1;
-display: flex;
+  flex-grow: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -60,10 +49,7 @@ display: flex;
   flex-direction: column;
 }
 
-
-/* CHORD PROGRESSION STYLES */
-
-
+/* Chord Progression Styles */
 .chords {
   flex-grow: 2;
   display: flex;
@@ -72,48 +58,46 @@ display: flex;
   flex-direction: row;
 }
 
-.chords ol li{
+.chords ol li {
   font-size: 7rem;
   display: inline;
   margin: 3rem;
 }
 
+/* Files Styles */
+.files-container {
+  flex-grow: 1;
+  height: 35vh; /* Set the height to 35% of the viewport height */
+}
 
-
-/* FILES STYLES */
-
-
-.files {
-  flex-grow: 3;
+.grid-container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row; /* Ensure flex direction is row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  height: 100%; /* Make sure it takes full available height */
+}
+
+.files-grid {
+  height: 100%; /* Ensure the grid takes full available height */
+  flex-wrap: nowrap; /* Ensure flex direction is row and no wrapping */
+}
+
+.file-item {
+  min-width: 19%; /* Adjust minWidth to control item width */
+}
+
+.item {
+  padding: 2rem; /* Adjust theme.spacing(2) equivalent to 2rem */
+  text-align: center;
+  color: rgb(117, 117, 117); /* Adjust to theme.palette.text.secondary */
+  height: 100%;
+  display: flex;
   align-items: center;
-  flex-direction: row;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-
-.files div {
-  display: inline;
-  margin: 3rem;
-  padding: 3rem;
-  border: 0.3rem solid rgb(0, 0, 0);
-  font-size: 3.5rem;
-}
-
-
-
-.files span {
-  font-size: 3rem;
-}
-
-.files span::first-letter {
-  font-size: 5rem;
-}
-
-
-/* STLYES FOR COMMENTS */
-
-
+/* Comments Styles */
 .comments {
   flex-grow: 3;
   display: flex;
@@ -122,7 +106,6 @@ display: flex;
   flex-direction: column;
   font-size: 2.5rem;
 }
-
 
 .comments span {
   font-size: 7rem;
@@ -141,15 +124,7 @@ display: flex;
   margin-left: 5rem;
 }
 
-
-
-
-
-
-/* STYLES FOR SUBMITTING A COMMENT */
-
-
-
+/* Submit Comment Styles */
 .submit {
   flex-grow: 2;
   display: flex;
