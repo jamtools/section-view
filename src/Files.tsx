@@ -9,11 +9,11 @@ type FilesProps = {
 export const Files: React.FC<FilesProps> = ({ files }) => {
   return (
     <Box className="files-container">
-      <Box className="grid-container">
+      <Box className="files-grid-container">
         <Grid container spacing={2} wrap="nowrap" className="files-grid">
           {files.map((file) => (
-            <Grid item xs={2.4} key={file.id} className="file-item">
-              <Paper className="item">
+            <Grid item xs={2.4} key={file.id} className="files-grid-item">
+              <Paper className="files-item">
                 {file.title}
                 <br></br> <br></br>
                 {file.numComments} Comments

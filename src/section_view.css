@@ -16,7 +16,8 @@ html {
 }
 
 div {
-  border: 1px solid black;
+  border: 1px solid black; 
+  /* toggle for clarity */
   border-collapse: collapse;
 }
 
@@ -70,7 +71,7 @@ div {
   height: 35vh; /* Set the height to 35% of the viewport height */
 }
 
-.grid-container {
+.files-grid-container {
   display: flex;
   flex-direction: row; /* Ensure flex direction is row */
   overflow-x: auto; /* Enable horizontal scrolling */
@@ -82,11 +83,11 @@ div {
   flex-wrap: nowrap; /* Ensure flex direction is row and no wrapping */
 }
 
-.file-item {
+.files-grid-item {
   min-width: 19%; /* Adjust minWidth to control item width */
 }
 
-.item {
+.files-item {
   padding: 2rem; /* Adjust theme.spacing(2) equivalent to 2rem */
   text-align: center;
   color: rgb(117, 117, 117); /* Adjust to theme.palette.text.secondary */
