@@ -11,10 +11,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App 
-    sectionData={testData.sectionData}
-    chordProgression={testData.currentChordProgression}
-    files={testData.files}
-    comments={testData.comments}
+    
+    // sectionData={testData.sectionData}
+    // chordProgression={testData.currentChordProgression}
+    // files={testData.files}
+    // comments={testData.comments}
     />
   </React.StrictMode>
 );
