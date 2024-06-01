@@ -176,8 +176,8 @@ describe('App', () => {
                 expect(screen.queryByText(/Loading/)).toBeNull();
             });
 
-            expect(container.querySelector('.files #file-1')?.textContent).toContain('Bass.mp3');
-            expect(container.querySelector('.files #file-1')?.textContent).toContain('2 Comments');
+            expect(container.querySelector('#file-file-1')?.textContent).toContain('Bass.mp3');
+            expect(container.querySelector('#file-file-1')?.textContent).toContain('2 Comments');
         });
 
         it('should show the comments on the section', async () => {

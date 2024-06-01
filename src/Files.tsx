@@ -19,7 +19,7 @@ export const Files: React.FC<FilesProps> = ({ files }) => {
                         const numComments = globalStore.getCommentsForFile(file.id).length;
 
                         return (
-                            <Grid item xs={2.4} key={file.id} className="files-grid-item">
+                            <Grid item xs={2.4} key={file.id} id={`file-${file.id}`} className="files-grid-item">
                                 <Paper className="files-item">
                                     {file.title}
                                     <br></br> <br></br>
