@@ -1,50 +1,69 @@
-import './App.css';
-import './SectionView.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceSmile } from '@fortawesome/free-solid-svg-icons';
+import {useState} from 'react';
 
-function App() {
-  return (
-    <div className="parent">
-      <div className="section-title">
-        <div className='text'>
-          <h1> Intro </h1>
-          <p>This intro section consists of a tuba quartet in the style of DJ Templeton & The Windsurfers</p>
-        </div>
-        <div className='buttons'>
-          <button> 42 revisions </button>
-          <button> save revision </button>
-        </div>
-      </div>
-      <div className="chords">
-        <ol>
-          <li>C</li>
-          <li>Dm</li>
-          <li>F</li>
-          <li>G</li>
-        </ol>
-      </div>
-      <div className="files">
-        <span>+ Files</span>
-          <div>Bass.mp3 <br></br> <br></br> 2 Comments</div>
-          <div>Drums.mp3 <br></br> <br></br> 2 Comments</div>
-          <div>Yodeling.mp3 <br></br> <br></br> 2 Comments  </div>
-          <div>Tuba.mp3 <br></br> <br></br> 2 Comments  </div>
-      </div>
-      <div className="comments">
-        <span>3 Comments</span>
-        <div className="display-comments">
-        <p><FontAwesomeIcon icon={faFaceSmile} /> Jerry: My name is Schmoopie and I love this song. It reminds me of my grandpa</p>
-        <p><FontAwesomeIcon icon={faFaceSmile} /> Larry: jokes on you! Im deaf.</p>
-        <p><FontAwesomeIcon icon={faFaceSmile} /> Terry: Notice the tinnitus ringing in your ears, let the hiss from your damaged hearing remind you of peaceful ocean waves...</p>
-        </div>
-      </div>
-      <div className="submit">
-      <textarea placeholder="make a comment"></textarea>
-      <button>Submit</button>
-      </div>
-    </div>
-  );
+import './App.css';
+import './css_reset.css'
+import './index.css'
+import './section_view.css';
+import * as types from './types';
+import {GlobalStoreProvider} from './hooks/useGlobalStore';
+import SectionPage from './SectionPage';
+import {IClient} from './client/IClient';
+import {ClientProvider} from './hooks/useClient';
+import {useMount} from './hooks/useMount';
+
+type AppProps = {
+    projectId: string;
+    sectionId: string;
+
+    client: IClient;
+}
+
+const App: React.FC<AppProps> = ({projectId, sectionId, client}) => {
+    const [initialProjectData, setInitialProjectData] = useState<types.FullProjectData | null>(null);
+    const [error, setError] = useState('');
+
+    useMount(async () => {
+        const projectDataOrError = await client.fetchFullDataForProject(projectId);
+
+        if (projectDataOrError instanceof Error) {
+            alert(projectDataOrError.message);
+            setError(projectDataOrError.message);
+            return;
+        }
+
+        setInitialProjectData(projectDataOrError);
+    });
+
+    if (error) {
+        return (
+            <p>
+                {error}
+            </p>
+        );
+    }
+
+    if (!initialProjectData) {
+        return (
+            <p>
+                Loading
+            </p>
+        );
+    }
+
+    const pageContent = (
+        <SectionPage
+            projectId={projectId}
+            sectionId={sectionId}
+        />
+    );
+
+    return (
+        <ClientProvider client={client}>
+            <GlobalStoreProvider initialProjectData={initialProjectData}>
+                {pageContent}
+            </GlobalStoreProvider>
+        </ClientProvider>
+    );
 }
 
 export default App;
