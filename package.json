@@ -25,16 +25,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.ts*",
     "fix": "npm run lint -- --fix",
-    "check-types": "tsc --noEmit"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "check-types": "tsc --noEmit",
+    "ci": "npm run lint && npm run check-types && npm run test:ci && npm run build"
   },
   "browserslist": {
     "production": [
