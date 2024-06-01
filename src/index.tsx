@@ -1,24 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import * as testData from './sampleData'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {LocalStorageStore} from './store/LocalStorageStore';
+import {LocalStorageClient} from './client/LocalStorageClient';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App 
-    
-    sectionData={testData.sectionData}
-    chordProgression={testData.currentChordProgression}
-    files={testData.files}
-    comments={testData.comments}
-    />
-  </React.StrictMode>
-);
+window.addEventListener('load', async () => {
+    const root = ReactDOM.createRoot(
+        document.getElementById('root') as HTMLElement
+    );
+
+    const localStore = new LocalStorageStore(localStorage);
+    const localClient = new LocalStorageClient(localStore);
+
+    const projectId = 'project-1';
+    const sectionId = 'section-1';
+
+    root.render(
+        <React.StrictMode>
+            <App
+                projectId={projectId}
+                sectionId={sectionId}
+                client={localClient}
+            />
+        </React.StrictMode>
+    );
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

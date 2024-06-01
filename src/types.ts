@@ -1,29 +1,45 @@
-
-
-export type SectionData = {
-    name: string,
-    description: string,
-    numRevisions: number
+export type ProjectData = {
+    id: string;
 }
 
+export enum EntityType {
+    PROJECT = 'project',
+    SECTION = 'section',
+    FILE = 'file',
+}
 
+export type EntityPointer = {
+    entityType: EntityType;
+    entityId: string;
+}
+
+export type SectionData = {
+    id: string;
+    projectId: string;
+    title: string;
+    description: string;
+    numRevisions: number;
+    chordProgression: ChordProgression;
+}
 
 export type ChordProgression = string[]
 
+export type FileData = {
+    projectId: string;
+    id: string;
+    title: string;
+} & EntityPointer;
 
-export type File = {
-    title: string,
-    numComments: number,
-    id: string,
-}
+export type CommentData = {
+    projectId: string;
+    id: string;
+    username: string;
+    message: string;
+} & EntityPointer;
 
-
-export type Comment = {
-    name: string,
-    commentText: string
-}
-
-export type commentsProps = {
-    comments: Comment[]
-    setComments: (comments: Comment[]) => void;
+export type FullProjectData = {
+    project: ProjectData;
+    sections: SectionData[];
+    comments: CommentData[];
+    files: FileData[];
 }

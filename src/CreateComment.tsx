@@ -1,59 +1,47 @@
 
-import {Comment} from './types';
+import {useActions} from './actions/useActions';
+import {EntityPointer} from './types';
 import {useState} from 'react';
 
-
 type CreateCommentProps = {
-  comments: Comment[],
-  setComments: (comments: Comment[]) => void;
+    entityPointer: EntityPointer;
 }
 
+export const CreateComment: React.FC<CreateCommentProps> = ({entityPointer}) => {
+    const actions = useActions();
 
+    const [name, setName] = useState('');
+    const [commentText, setCommentText] = useState('');
 
-export const CreateComment: React.FC<CreateCommentProps> = ({ comments, setComments }) => {
-
-  const [name, setName] = useState('');
-  const [commentText, setCommentText] = useState('');
-
-  const handleAddComment = () => {
-    const newComment = { name, commentText };
-  
-    // Fetch existing comments from localStorage
-    const storedComments = localStorage.getItem('comments');
-    const existingComments = storedComments ? JSON.parse(storedComments) : [];
-  
-    // Add the new comment to the array
-    const updatedComments = [...existingComments, newComment];
-  
-    // Save the updated array back to localStorage
-    localStorage.setItem('comments', JSON.stringify(updatedComments));
-  
-    // Update the local state to reflect the new list of comments
-    setComments(updatedComments);
-  }
-  
-
-  return (
-    <div>
-      <form onSubmit={(e) => {
+    const handleAddComment = async (e: React.FormEvent) => {
         e.preventDefault();
-        handleAddComment();
+
+        await actions.addCommentToEntity(commentText, name, entityPointer);
         setCommentText('');
-      }}>
-        <input 
-          type='text'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder='Enter your name'
-        />
-        <input 
-          type='text'
-          value={commentText}
-          onChange={(e) => setCommentText(e.target.value)}
-          placeholder='Type your thoughts here'
-        />
-        <button type='submit'>Add Comment</button>
-      </form>
-    </div>
-  );
+    }
+
+    return (
+        <div>
+            <form onSubmit={handleAddComment}>
+                <input
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder='Enter your name'
+                />
+                <input
+                    type='text'
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                    placeholder='Type your thoughts here'
+                />
+                <button
+                    type='submit'
+                    disabled={!Boolean(name && commentText)}
+                >
+                    Add Comment
+                </button>
+            </form>
+        </div>
+    );
 };
