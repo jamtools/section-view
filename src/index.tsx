@@ -11,19 +11,9 @@ window.addEventListener('load', async () => {
         document.getElementById('root') as HTMLElement
     );
 
-    const localStore = new LocalStorageStore(localStorage);
-    const localClient = new LocalStorageClient(localStore);
-
-    const projectId = 'project-1';
-    const sectionId = 'section-1';
-
     root.render(
         <React.StrictMode>
-            <App
-                projectId={projectId}
-                sectionId={sectionId}
-                client={localClient}
-            />
+            <App />
         </React.StrictMode>
     );
 });
