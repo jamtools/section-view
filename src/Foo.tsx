@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Menu, Dropdown, Grid, Comment, Form, Button, Input, List } from 'semantic-ui-react';
+import { Container, Header, Menu, Dropdown, Grid, Comment, Form, Button, List } from 'semantic-ui-react';
 
 const SectionView = () => (
   <Container>
