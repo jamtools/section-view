@@ -22,12 +22,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:ci": "react-scripts test --watchAll=false",
-    "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.ts*",
+    "start": "parcel src/index.html --dist-dir build",
+    "build": "parcel build src/index.html --dist-dir build",
+    "test": "jest",
+    "test:ci": "jest --watchAll=false",
+    "lint": "eslint src/**/*.ts src/**/*.tsx",
     "fix": "npm run lint -- --fix",
     "check-types": "tsc --noEmit",
     "ci": "npm run lint && npm run check-types && npm run test:ci && npm run build"
@@ -43,5 +42,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.7.0",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10",
+    "ts-jest": "^29.1.5"
   }
 }

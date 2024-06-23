@@ -1,6 +1,6 @@
 
-import {useActions} from './actions/useActions';
-import {EntityPointer} from './types';
+import {useActions} from '@/actions/useActions';
+import {EntityPointer} from '@/types/music_sniper_types';
 import {useState} from 'react';
 
 type CreateCommentProps = {

@@ -1,4 +1,4 @@
-import {EntityPointer, EntityType} from './types';
+import {EntityPointer, EntityType} from './types/music_sniper_types';
 
 export const matchesEntityPointer = (entityPointer: EntityPointer, entityType: EntityType, entityId: string): boolean => {
     return entityPointer.entityType === entityType && entityPointer.entityId === entityId;

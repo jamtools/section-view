@@ -1,9 +1,9 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFaceSmile} from '@fortawesome/free-solid-svg-icons';
 
-import {EntityPointer} from './types';
-import {useGlobalStore} from './hooks/useGlobalStore';
-import {plural} from './utils';
+import {EntityPointer} from '@/types/music_sniper_types';
+import {useGlobalStore} from '@/hooks/useGlobalStore';
+import {plural} from '@/utils';
 
 type CommentsProps = {
     entityPointer: EntityPointer;

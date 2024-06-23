@@ -4,9 +4,9 @@ import './App.css';
 import './css_reset.css'
 import './index.css'
 import './section_view.css';
-import * as types from './types';
+import * as types from './types/music_sniper_types';
 import {GlobalStoreProvider} from './hooks/useGlobalStore';
-import SectionPage from './SectionPage';
+import SectionPage from './components/SectionPage';
 import {IClient} from './client/IClient';
 import {ClientProvider} from './hooks/useClient';
 import {useMount} from './hooks/useMount';
