@@ -1,4 +1,4 @@
-import * as types from '../types/music_sniper_types';
+import * as types from '@/types/music_sniper_types';
 
 type ChordProgressionProps = {
   chordProgression: types.ChordProgression
