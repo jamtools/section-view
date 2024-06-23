@@ -6,11 +6,11 @@ type ChordProgressionProps = {
 
 
 export const ChordProgression: React.FC<ChordProgressionProps> = ({ chordProgression }) => {
-  return (
-    <div className="chords">
-      <ol>
-        {chordProgression.map((chord, index) => <li key={index}>{chord}</li>)}
-      </ol>
-    </div>
-  );
+    return (
+        <div className="chords">
+            <ol>
+                {chordProgression.map((chord, index) => <li key={index}>{chord}</li>)}
+            </ol>
+        </div>
+    );
 };

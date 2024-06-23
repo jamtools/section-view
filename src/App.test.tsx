@@ -8,7 +8,7 @@ import {LocalStorageClient} from './client/LocalStorageClient';
 
 // import * as testData from './sampleData'
 
-window.alert = () => {};
+globalThis.alert = () => {};
 
 const makeTestStore = (): StoreData => {
     const initialProjects: ProjectData[] = [
