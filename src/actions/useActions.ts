@@ -1,6 +1,6 @@
 import {useClient} from '../hooks/useClient';
 import {useGlobalStore} from '../hooks/useGlobalStore';
-import {CommentData, EntityPointer, SectionData} from '../types';
+import {CommentData, EntityPointer, SectionData} from '../types/music_sniper_types';
 
 type UseActionsHookValue = {
     addCommentToEntity(text: string, username: string, entityPointer: EntityPointer): Promise<CommentData>;

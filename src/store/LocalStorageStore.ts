@@ -1,4 +1,4 @@
-import {CommentData, EntityType, FileData, ProjectData, SectionData} from '../types';
+import {CommentData, EntityType, FileData, ProjectData, SectionData} from '../types/music_sniper_types';
 
 export interface LocalStorageDependency {
     getItem(key: string): string | null;

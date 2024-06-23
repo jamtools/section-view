@@ -1,5 +1,5 @@
 import {createContext, useContext, useMemo, useState} from 'react';
-import {CommentData, EntityPointer, EntityType, FileData, FullProjectData, SectionData} from '../types';
+import {CommentData, EntityPointer, EntityType, FileData, FullProjectData, SectionData} from '../types/music_sniper_types';
 import {matchesEntityPointer} from '../utils';
 
 type GlobalStoreContextValue = {

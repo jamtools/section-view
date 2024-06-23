@@ -1,10 +1,10 @@
-import * as types from './types';
+import * as types from '../types/music_sniper_types';
 import {Files} from './Files';
 import {ChordProgression} from './ChordProgression';
 import {Comments} from './Comments';
 import {CreateComment} from './CreateComment';
 import {SectionTitle} from './SectionTitle';
-import {useGlobalStore} from './hooks/useGlobalStore';
+import {useGlobalStore} from '../hooks/useGlobalStore';
 
 type SectionPageProps = {
     projectId: string;

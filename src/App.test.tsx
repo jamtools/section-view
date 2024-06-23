@@ -1,7 +1,7 @@
 import {render, screen, waitFor} from '@testing-library/react';
 import App from './App';
 import {IClient} from './client/IClient';
-import {ProjectData, CommentData, SectionData, EntityType, FileData} from './types';
+import {ProjectData, CommentData, SectionData, EntityType, FileData} from './types/music_sniper_types';
 import {LocalStorageStore, StoreData} from './store/LocalStorageStore';
 import {MockLocalStorageDependency} from './store/MockLocalStorageDependency';
 import {LocalStorageClient} from './client/LocalStorageClient';

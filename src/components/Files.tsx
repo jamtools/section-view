@@ -1,6 +1,6 @@
-import {useGlobalStore} from './hooks/useGlobalStore';
-import * as types from './types';
-import {plural} from './utils';
+import {useGlobalStore} from '../hooks/useGlobalStore';
+import * as types from '../types/music_sniper_types';
+import {plural} from '../utils';
 
 type FilesProps = {
     files: types.FileData[]

@@ -1,7 +1,7 @@
-import {useActions} from './actions/useActions';
-import {useGlobalStore} from './hooks/useGlobalStore';
+import {useActions} from '../actions/useActions';
+import {useGlobalStore} from '../hooks/useGlobalStore';
 import React, {useState, FormEvent} from 'react';
-import {SectionData} from './types';
+import {SectionData} from '../types/music_sniper_types';
 
 type SectionDataProps = {
     sectionId: string;

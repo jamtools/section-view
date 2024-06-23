@@ -1,5 +1,5 @@
 import {LocalStorageStore} from '../store/LocalStorageStore';
-import {CommentData, FullProjectData, SectionData} from '../types';
+import {CommentData, FullProjectData, SectionData} from '../types/music_sniper_types';
 import {IClient} from './IClient';
 
 export class LocalStorageClient implements IClient {
