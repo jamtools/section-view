@@ -8,6 +8,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mattermost/client": "^9.8.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -21,6 +22,13 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@mattermost/types": "^9.8.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10",
+    "ts-jest": "^29.1.5"
+  },
   "scripts": {
     "start": "parcel src/index.html --dist-dir build",
     "build": "parcel build src/index.html --dist-dir build",
@@ -29,7 +37,8 @@
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "fix": "npm run lint -- --fix",
     "check-types": "tsc --noEmit",
-    "ci": "npm run lint && npm run check-types && npm run test:ci && npm run build"
+    "ci": "npm run lint && npm run check-types && npm run test:ci && npm run build",
+    "mattermost": "cd docker && docker-compose up"
   },
   "browserslist": {
     "production": [
@@ -42,11 +51,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "jest-environment-jsdom": "^29.7.0",
-    "parcel": "^2.12.0",
-    "process": "^0.11.10",
-    "ts-jest": "^29.1.5"
   }
 }
