@@ -10,7 +10,7 @@ import SectionPage from './components/SectionPage';
 import {IClient} from './client/IClient';
 import {ClientProvider} from './hooks/useClient';
 import {useMount} from './hooks/useMount';
-import {MattermostProvider} from './hooks/useMattermost';
+import {MattermostProvider} from './hooks/useMM';
 
 type AppProps = {
     projectId: string;

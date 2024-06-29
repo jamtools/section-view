@@ -1,12 +1,13 @@
 import {useGlobalStore} from '@/hooks/useGlobalStore';
-import {makeClient4FromConfig, useMattermost} from '@/hooks/useMattermost';
+import {makeClient4FromConfig, useMattermost} from '@/hooks/useMM';
+import {Client4} from '@mattermost/client';
 import {useState} from 'react';
 
-export const MattermostConfigButton = () => {
+export const MMConfigButton = () => {
     const [showForm, setShowForm] = useState(false);
 
     const onSubmit = () => {
-
+        setShowForm(false);
     }
 
     const button = (
@@ -26,7 +27,7 @@ export const MattermostConfigButton = () => {
     return (
         <>
             {button}
-            <MattermostConfigForm
+            <MMConfigForm
                 onSubmit={onSubmit}
             />
         </>
@@ -37,24 +38,31 @@ type MattermostConfigFormProps = {
     onSubmit: () => void;
 }
 
-const MattermostConfigForm = (props: MattermostConfigFormProps) => {
+const MMConfigForm = (props: MattermostConfigFormProps) => {
     const mm = useMattermost();
 
     const [url, setUrl] = useState(mm.savedConfig?.url || '');
     const [token, setToken] = useState(mm.savedConfig?.token || '');
 
     const onSubmit = () => {
-        alert('submitting');
-        props.onSubmit();
+        testConnection().then(() => {
+            mm.setSavedConfig({url, token});
+            props.onSubmit();
+        });
     };
 
-    const testConnection = () => {
+    const testConnection = async () => {
         const client4 = makeClient4FromConfig({url, token});
-        client4.getMe().then((me) => {
-            alert(`Success! Logged in as ${me.username}`);
-        }, (err) => {
-            alert(`Error: ${err.message}`);
-        });
+        return testConnectWithClient(client4);
+    };
+
+    const testSavedConnection = async () => {
+        const client4 = mm.client4;
+        if (!client4) {
+            return;
+        }
+
+        return testConnectWithClient(client4);
     };
 
     return (
@@ -83,7 +91,20 @@ const MattermostConfigForm = (props: MattermostConfigFormProps) => {
             >
                 Test Connection
             </button>
+            <button
+                type='button'
+                onClick={testSavedConnection}
+            >
+                Test Saved Connection
+            </button>
         </div>
-    )
+    );
+};
 
+const testConnectWithClient = (client4: Client4) => {
+    return client4.getMe().then((me) => {
+        alert(`Success! Logged in as ${me.username}`);
+    }, (err) => {
+        alert(`Error: ${err.message}`);
+    });
 };

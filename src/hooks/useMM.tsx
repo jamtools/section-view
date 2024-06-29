@@ -36,6 +36,7 @@ export const MattermostProvider = (props: React.PropsWithChildren) => {
             const client = makeClient4FromConfig(config);
             setClient4(client);
             setSavedConfig(config);
+            saveMattermostConfigToLocalStorage(config);
         },
     }), [savedConfig, client4]);
 
@@ -57,7 +58,7 @@ const getMattermostConfigFromLocalStorage = (): MattermostConfig | null => {
     return JSON.parse(configString);
 };
 
-const setMattermostConfig = (config: MattermostConfig) => {
+const saveMattermostConfigToLocalStorage = (config: MattermostConfig) => {
     const configString = JSON.stringify(config);
     localStorage.setItem(MATTERMOST_CONFIG_LOCAL_STORAGE_KEY, configString);
 }

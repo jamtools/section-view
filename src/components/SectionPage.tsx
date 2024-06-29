@@ -5,7 +5,7 @@ import {Comments} from './Comments';
 import {CreateComment} from './CreateComment';
 import {SectionTitle} from './SectionTitle';
 import {useGlobalStore} from '@/hooks/useGlobalStore';
-import {MattermostConfigButton} from './MattermostConfigButton';
+import {MMConfigButton} from './MMConfigButton';
 
 type SectionPageProps = {
     projectId: string;
@@ -29,7 +29,7 @@ const SectionPage: React.FC<SectionPageProps> = ({projectId, sectionId}) => {
             <Files files={files} />
             <Comments entityPointer={sectionPointer} />
             <CreateComment entityPointer={sectionPointer} />
-            <MattermostConfigButton/>
+            <MMConfigButton/>
         </div>
     );
 }
