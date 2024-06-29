@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Header, Menu, Dropdown, Grid, Comment, Form, Button, List } from 'semantic-ui-react';
 
 const SectionView = () => (
@@ -52,7 +51,8 @@ const SectionView = () => (
           </List>
         </Grid.Column>
         <Grid.Column>
-        <List.Item>
+          <List>
+            <List.Item>
               <List.Icon name='file audio' />
               <List.Content>
                 <List.Header>Guitar.mp3</List.Header>
@@ -66,6 +66,7 @@ const SectionView = () => (
                 <List.Description>23 comments</List.Description>
               </List.Content>
             </List.Item>
+          </List>
         </Grid.Column>
       </Grid.Row>
     </Grid>

@@ -5,7 +5,7 @@ import {GlobalStoreProvider} from './hooks/useGlobalStore';
 import {IClient} from './client/IClient';
 import {ClientProvider} from './hooks/useClient';
 import {useMount} from './hooks/useMount';
-import SectionView from './Foo';
+import SectionView from './SectionView';
 
 type AppProps = {
     projectId: string;
