@@ -10,6 +10,7 @@ import SectionPage from './components/SectionPage';
 import {IClient} from './client/IClient';
 import {ClientProvider} from './hooks/useClient';
 import {useMount} from './hooks/useMount';
+import {MattermostProvider} from './hooks/useMM';
 
 type AppProps = {
     projectId: string;
@@ -58,11 +59,13 @@ const App: React.FC<AppProps> = ({projectId, sectionId, client}) => {
     );
 
     return (
-        <ClientProvider client={client}>
-            <GlobalStoreProvider initialProjectData={initialProjectData}>
-                {pageContent}
-            </GlobalStoreProvider>
-        </ClientProvider>
+        <MattermostProvider>
+            <ClientProvider client={client}>
+                <GlobalStoreProvider initialProjectData={initialProjectData}>
+                    {pageContent}
+                </GlobalStoreProvider>
+            </ClientProvider>
+        </MattermostProvider>
     );
 }
 
