@@ -1,15 +1,11 @@
 import {useState} from 'react';
 
-import './App.css';
-import './css_reset.css'
-import './index.css'
-import './section_view.css';
 import * as types from './types';
 import {GlobalStoreProvider} from './hooks/useGlobalStore';
-import SectionPage from './SectionPage';
 import {IClient} from './client/IClient';
 import {ClientProvider} from './hooks/useClient';
 import {useMount} from './hooks/useMount';
+import SectionView from './Foo';
 
 type AppProps = {
     projectId: string;
@@ -51,10 +47,7 @@ const App: React.FC<AppProps> = ({projectId, sectionId, client}) => {
     }
 
     const pageContent = (
-        <SectionPage
-            projectId={projectId}
-            sectionId={sectionId}
-        />
+        <SectionView/>
     );
 
     return (
